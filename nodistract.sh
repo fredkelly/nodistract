@@ -8,6 +8,7 @@ CURRENT=$(cat $HOSTS)
 EMPTIED=$(sed "/## BEGIN BLOCKING DISTRACTIONS ##/,/## END BLOCKING DISTRACTIONS ##/d" $HOSTS)
 
 if [ "$CURRENT" == "$EMPTIED" ]; then
+	echo "Blocking those pesky distractions..."
 	# add lines to hosts
 	(
 		echo -e "\n## BEGIN BLOCKING DISTRACTIONS ##"
@@ -17,6 +18,7 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 		echo -e "## BEGIN BLOCKING DISTRACTIONS ##\n"
 	) >> /etc/hosts
 else
+	echo "Unblocking those beautiful distractions..."
 	# remove lines from hosts
 	echo "$EMPTIED" > $HOSTS
 fi
