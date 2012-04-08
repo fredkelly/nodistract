@@ -3,6 +3,8 @@
 # Blocks & unblocks distracting domains using hosts file.
 # Written by Fred Kelly <me@fredkelly.net> 5/4/2012.
 
+DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com') # add more here...
+
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
 EMPTIED=$(sed "/## BEGIN BLOCKING DISTRACTIONS ##/,/## END BLOCKING DISTRACTIONS ##/d" $HOSTS)
@@ -12,9 +14,10 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 	# add lines to hosts
 	(
 		echo -e "\n## BEGIN BLOCKING DISTRACTIONS ##"
-		echo -e "127.0.0.1\tfacebook.com"
-		echo -e "127.0.0.1\ttwitter.com"
-		# add more here...
+		for distraction in ${DISTRACTIONS[*]}
+		do
+			echo -e "127.0.0.1\t${distraction}"
+		done
 		echo -e "## BEGIN BLOCKING DISTRACTIONS ##\n"
 	) >> /etc/hosts
 else
