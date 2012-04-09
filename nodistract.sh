@@ -16,7 +16,7 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 		echo -e "\n## BEGIN BLOCKING DISTRACTIONS ##"
 		for distraction in ${DISTRACTIONS[*]}
 		do
-			echo -e "127.0.0.1\t${distraction}"
+			echo -e "127.0.0.1\t${distraction} www.${distraction}"
 		done
 		echo -e "## BEGIN BLOCKING DISTRACTIONS ##\n"
 	) >> /etc/hosts
