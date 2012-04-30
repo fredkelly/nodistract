@@ -4,7 +4,7 @@
 # Written by Fred Kelly <me@fredkelly.net> 5/4/2012.
 
 # for Mac OS add this to your /usr/bin using:
-# ln /path/to/nodistract.sh /usr/bin/nodistract
+# sudo ln /path/to/nodistract.sh /usr/bin/nodistract
 # (..make sure you have /usr/bin in your $PATH.)
 
 # force to run as root
