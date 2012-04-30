@@ -3,7 +3,18 @@
 # Blocks & unblocks distracting domains using hosts file.
 # Written by Fred Kelly <me@fredkelly.net> 5/4/2012.
 
-DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk') # add more here...
+# for Mac OS add this to your /usr/bin using:
+# ln /path/to/nodistract.sh /usr/bin/nodistract
+# (..make sure you have /usr/bin in your $PATH.)
+
+# force to run as root
+if [ $(id -u) != "0" ]
+then
+    sudo "$0" "$@"
+    exit $?
+fi
+
+DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv') # add more here...
 
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
