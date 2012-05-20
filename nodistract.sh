@@ -14,7 +14,7 @@ then
     exit $?
 fi
 
-DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv') # add more here...
+DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com') # add more here...
 
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
@@ -27,7 +27,7 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 		echo -e "\n## BEGIN BLOCKING DISTRACTIONS ##"
 		for distraction in ${DISTRACTIONS[*]}
 		do
-			echo -e "127.0.0.1\t${distraction} www.${distraction}"
+			echo -e "127.0.0.1\t${distraction}\twww.${distraction}"
 		done
 		echo -e "## END BLOCKING DISTRACTIONS ##\n"
 	) >> /etc/hosts
