@@ -30,7 +30,7 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 			echo -e "127.0.0.1\t${distraction}\twww.${distraction}"
 		done
 		echo -e "## END BLOCKING DISTRACTIONS ##\n"
-	) >> /etc/hosts
+	) >> $HOSTS
 else
 	echo "Unblocking those beautiful distractions..."
 	# remove lines from hosts
