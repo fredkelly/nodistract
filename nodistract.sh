@@ -14,7 +14,8 @@ then
     exit $?
 fi
 
-DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com') # add more here...
+# add more here...
+DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com', 'techcrunch.com')
 
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
