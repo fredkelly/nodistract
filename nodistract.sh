@@ -15,7 +15,7 @@ then
 fi
 
 # add more here...
-DISTRACTIONS=('facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com', 'techcrunch.com')
+DISTRACTIONS=('news.ycombinator.com' 'producthunt.com' 'facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com', 'techcrunch.com')
 
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
