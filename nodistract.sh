@@ -14,9 +14,6 @@ then
     exit $?
 fi
 
-# add more here...
-DISTRACTIONS=('news.ycombinator.com' 'producthunt.com' 'facebook.com' 'twitter.com' 'rugbydump.com' 'ebay.co.uk' 'lshunter.tv' 'tumblr.com', 'techcrunch.com')
-
 HOSTS="/etc/hosts"
 CURRENT=$(cat $HOSTS)
 EMPTIED=$(sed "/## BEGIN BLOCKING DISTRACTIONS ##/,/## END BLOCKING DISTRACTIONS ##/d" $HOSTS)
@@ -26,10 +23,10 @@ if [ "$CURRENT" == "$EMPTIED" ]; then
 	# add lines to hosts
 	(
 		echo -e "\n## BEGIN BLOCKING DISTRACTIONS ##"
-		for distraction in ${DISTRACTIONS[*]}
+		while read distraction;
 		do
 			echo -e "127.0.0.1\t${distraction}\twww.${distraction}"
-		done
+		done <distractions.file
 		echo -e "## END BLOCKING DISTRACTIONS ##\n"
 	) >> $HOSTS
 else
